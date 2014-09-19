@@ -8,15 +8,15 @@ This is an condensed version of the core functionality. Although I provide this 
 accept bug reports or suggestions gladly.
 
 Requirements
-------------
-.. code:: 
-    git+git://github.com/weddige/pyaiml3.git#egg=PyAIML
-    SQLAlchemy
-    adventure
-    dnspython3
-    psutil
-    python-seth
-    sleekxmpp
+------------ 
+
+ * git+git://github.com/weddige/pyaiml3.git#egg=PyAIML
+ * SQLAlchemy
+ * adventure
+ * dnspython3
+ * psutil
+ * python-seth
+ * sleekxmpp
 
 Installation
 ------------
@@ -27,21 +27,23 @@ pip install URL
 
 and create ~/.moneypenny/config with
 
-.. code::
-    [daemon]
+  [daemon]
     pidfile=~/.moneypenny/moneypenny.pid
-    [moneypenny]
+  [moneypenny]
     user=MONEYPENNY@SERVER.TLD
+    
     password=PASSWORD
+    
     admin=YOU@SERVER.TLD
-    [database]
+  [database]
     url=sqlite:////~/.moneypenny/local.db
-    [logging]
+  [logging]
     level=INFO
+    
     file=~/.moneypenny/moneypenny.log
-    [textadventure]
+  [textadventure]
     file=~/.moneypenny/sessiondata/{0}.savegame
-    [conversation]
+  [conversation]
     file=~/.moneypenny/sessiondata/{0}.conversation
 
 and finally run
