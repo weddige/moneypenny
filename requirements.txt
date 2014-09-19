@@ -1,0 +1,10 @@
+git+git://github.com/weddige/pyaiml3.git#egg=PyAIML
+SQLAlchemy>=0.9.3
+adventure>=1.3
+dnspython3>=1.11.1
+psutil>=1.2.1
+python-seth>=0.6
+sleekxmpp>=1.2.4
+
+#strudel>=0.2.4
+#xmlrpclib>=1.0.1

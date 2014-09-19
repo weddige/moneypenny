@@ -1,0 +1,9 @@
+moneypenny.pid
+moneypenny.db
+moneypenny.log
+sessiondata/
+*~
+__pycache__
+*.pyc
+*.pid
+.idea

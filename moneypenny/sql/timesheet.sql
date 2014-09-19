@@ -1,0 +1,1 @@
+CREATE TABLE IF NOT EXISTS timesheet_clock (clock_in INTEGER, clock_out INTEGER, project TEXT, user TEXT);
