@@ -21,33 +21,34 @@ Requirements
 Installation
 ------------
 
-Make
+Make::
 
-pip install URL
+    pip install git+https://github.com/weddige/moneypenny.git
 
-and create ~/.moneypenny/config with
+and create ~/.moneypenny/config::
 
-  [daemon]
+    [daemon]
     pidfile=~/.moneypenny/moneypenny.pid
-  [moneypenny]
+    [moneypenny]
     user=MONEYPENNY@SERVER.TLD
-    
     password=PASSWORD
-    
     admin=YOU@SERVER.TLD
-  [database]
+    [database]
     url=sqlite:////~/.moneypenny/local.db
-  [logging]
+    [logging]
     level=INFO
-    
     file=~/.moneypenny/moneypenny.log
-  [textadventure]
+    [textadventure]
     file=~/.moneypenny/sessiondata/{0}.savegame
-  [conversation]
+    [conversation]
     file=~/.moneypenny/sessiondata/{0}.conversation
 
-and finally run
+You can start moneypenny with::
 
-moneypenny [START|STOP|RESTART]?
+    moneypenny START
+
+To stop ist run::
+
+    moneypenny STOP
 
 Have fun!
