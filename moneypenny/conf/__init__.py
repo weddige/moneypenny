@@ -4,6 +4,8 @@ import logging
 
 import os
 import imp
+import importlib
+import pkgutil
 
 from moneypenny.handler import _handlers
 
@@ -40,20 +42,18 @@ class _Handlers:
     _registered_handlers = {}
 
     def __init__(self):
-        root = os.path.join(project_dir, 'handler')
+        modules = list()
         if settings.has_option('moneypenny', 'handler'):
-            modules = settings.get('moneypenny', 'handler').strip().split(',')
+            for module in settings.get('moneypenny', 'handler').strip().split(','):
+                modules.append(importlib.import_module(module))
         else:
-            modules = [
-                os.path.splitext(file_name)[0]
-                for file_name in os.listdir(root)
-                if os.path.splitext(file_name)[1] == '.py'
-            ]
-        for module_name in modules:
-            try:
-                module = imp.load_source(module_name, os.path.join(root, module_name + '.py'))
-            except Exception as e:
-                logging.info(e)
+            base_modules = [importlib.import_module('moneypenny.handler'), ]
+            if settings.has_option('moneypenny', 'plugins'):
+                for plugin in settings.get('moneypenny', 'plugins').strip().split(','):
+                    base_modules.append(importlib.import_module('{0}.handler'.format(plugin)))
+            for base_module in base_modules:
+                for importer, modname, ispkg in pkgutil.iter_modules(base_module.__path__):
+                    modules.append(importer.find_module(modname).load_module(modname))
         self._registered_handlers = {h: 0 for h in _handlers}
         for handler in _handlers:
             if hasattr(handler, 'postregister'):
