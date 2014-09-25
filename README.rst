@@ -8,26 +8,25 @@ This is an condensed version of the core functionality. Although I provide this 
 accept bug reports or suggestions gladly.
 
 Requirements
-------------
-.. code:: 
-    git+git://github.com/weddige/pyaiml3.git#egg=PyAIML
-    SQLAlchemy
-    adventure
-    dnspython3
-    psutil
-    python-seth
-    sleekxmpp
+------------ 
+
+ * git+git://github.com/weddige/pyaiml3.git#egg=PyAIML
+ * SQLAlchemy
+ * adventure
+ * dnspython3
+ * psutil
+ * python-seth
+ * sleekxmpp
 
 Installation
 ------------
 
-Make
+Make::
 
-pip install URL
+    pip install git+https://github.com/weddige/moneypenny.git
 
-and create ~/.moneypenny/config with
+and create ~/.moneypenny/config::
 
-.. code::
     [daemon]
     pidfile=~/.moneypenny/moneypenny.pid
     [moneypenny]
@@ -44,8 +43,12 @@ and create ~/.moneypenny/config with
     [conversation]
     file=~/.moneypenny/sessiondata/{0}.conversation
 
-and finally run
+You can start moneypenny with::
 
-moneypenny [START|STOP|RESTART]?
+    moneypenny START
+
+To stop ist run::
+
+    moneypenny STOP
 
 Have fun!
